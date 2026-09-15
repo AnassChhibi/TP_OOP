@@ -24,8 +24,11 @@ assert exploration_seule == {"R2"}
 #question 2
 def ajouter_robot_mission(robots_exploration,nom_robot):
     robots = set()
-    for i in robots_exploration:
-        robots.add(i)
+    if nom_robot in robots_exploration:
+        return robots_exploration.copy()
+    else:
+        for i in robots_exploration:
+            robots.add(i)
     robots.add(nom_robot)
     return robots
 
