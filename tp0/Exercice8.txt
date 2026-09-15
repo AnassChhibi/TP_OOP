@@ -1,0 +1,13 @@
+QUESTION 2 
+    il a remarqué que j'avais un problème critiques que nouveaux_releve = releves ne crée pas de copie. 
+    Maintenant que je le vois je le remaque et je pense sa viens d'une déformation de mon habitude a codé en C.
+    aussi il m'as fait remarqué j'ai fait aucun docstring, ça viens d'une mauvaise lecture du sujet et de mon manque de rigeur.
+QUESTION 3
+    l'ia a ajouter un test recovrant plusieurs test limite dont un avec capteur inexistant, valeur zéro/négative et un qui révèlerais des bug de mutation.
+QUESTION 4 
+    Copilote a crée un readme entier alots que j'en avais pas fait et apres relecture il couvre vraiment tout les points que j'ai abordé c'est impressionant j'ai meme pas eu besoin de faire de modification a l'exception d'une partie a la fin sur des objectifs pédagogiques et concepts couverts
+Question 5 
+    le message est plus précis que ce que j'aurais écrit ( voici le msg : Ajout de tests pour les fonctions de gestion des robots et correction de la fonction ajouter_robot_mission)
+Question 6
+    L'usage m'a sembler plus fiable que ce que je pensais mais il faut que je fasse attention a pas trop me reposser dessus sinon je risque de mal acquerir les bases.
+    Le coté il complete le code avant meme que je réflechisse j'aime pas trop mais qu'il ecrive mes commit ou encore le readme je trouve sa parfait.
