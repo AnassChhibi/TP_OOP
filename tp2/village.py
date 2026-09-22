@@ -1,3 +1,5 @@
+from multipledispatch import dispatch
+
 class Habitant:
 
     def __init__ (self, nom, age, adresse, animaux=None):
@@ -101,7 +103,6 @@ assert elise in autre_village.get_habitants()
 ajouter_habitant_composition a une relation forte car il gère la création et ajout de l'habitant tout seul (le village est propriétaire). 
 ajouter_habitant_agregation, lui a une relation plus faible avec le village qui se contente d'utiliser un objet Habitant externe qui existe indépendamment et peut être partagé entre plusieurs villages.
 """
-from multipledispatch import dispatch
 
 @dispatch(object, str)
 def set_info(hab,nom):
