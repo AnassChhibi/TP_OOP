@@ -101,3 +101,16 @@ assert elise in autre_village.get_habitants()
 ajouter_habitant_composition a une relation forte car il gère la création et ajout de l'habitant tout seul (le village est propriétaire). 
 ajouter_habitant_agregation, lui a une relation plus faible avec le village qui se contente d'utiliser un objet Habitant externe qui existe indépendamment et peut être partagé entre plusieurs villages.
 """
+from multipledispatch import dispatch
+
+@dispatch(object, str)
+def set_info(hab,nom):
+    Habitant.nom=nom
+@dispatch(object, str, int)
+def set_info(hab,nom,age):
+    Habitant.nom=nom
+    Habitant.age=age
+h2 = Habitant("Bob", 40, "Rue C")
+
+set_info(h2, "Robert") # met a jour le nom seulement
+set_info(h2, "Robert", 41) # met a jour le nom et l’age
