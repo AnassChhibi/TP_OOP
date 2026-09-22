@@ -10,7 +10,7 @@ class Habitant(ABC):
         self.animaux=animaux
 
     def __str__(self):
-        return "{} {}, {} ans,habite a {}".format(self.prenom,self.nom,self.age,self.adresse)
+        return "{} {}, {} ans, habite a {}".format(self.prenom,self.nom,self.age,self.adresse)
 
 def affichage(habitant):
 
@@ -25,7 +25,7 @@ class Adulte(Habitant):
         if self.age < 18:
             raise ValueError
         elif self.age >= 62:
-            print("Deja a la retraite")
+            return "Deja a la retraite"
         else:
             return 62-self.age
 
@@ -54,24 +54,24 @@ class Enfant(Habitant):
 # Enfant : leve une ValueError si age >= 18
 # calcul_nombre_annee_avant_retraite() renvoie toujours :
 # - "Erreur: un enfant ne peut pas calculer sa retraite"
-adulte = Adulte("Dupont", "Marie", 35, "Rue A")
-enfant = Enfant("Martin", "Lucas", 12, "Rue B")
-assert isinstance(adulte, Habitant)
-assert adulte.calcul_nombre_annee_avant_retraite() == 27
-assert "enfant" in enfant.calcul_nombre_annee_avant_retraite()
 
-try:
+if __name__ == "__main__":
+  adulte = Adulte("Dupont", "Marie", 35, "Rue A")
+  enfant = Enfant("Martin", "Lucas", 12, "Rue B")
+  assert isinstance(adulte, Habitant)
+  assert adulte.calcul_nombre_annee_avant_retraite() == 27
+  assert "enfant" in enfant.calcul_nombre_annee_avant_retraite()
+
+  try:
     Enfant("Oups", 25, "Rue C")
     assert False, "une ValueError aurait du etre levee"
-except ValueError:
+  except ValueError:
     pass
 
-
-adulte = Adulte("Dupont", "Marie", 35, "123 Rue de la Paix")
-enfant = Adulte("Mohamed", "ALGAZAR", 9, "123 VIVA L'ALGERIE")
-
-affichage(adulte)
-affichage(enfant)
+  adulte = Adulte("Dupont", "Marie", 35, "123 Rue de la Paix")
+  enfant = Enfant("Mohamed", "ALGAZAR", 9, "123 VIVA L'ALGERIE")
+  affichage(adulte)
+  affichage(enfant)
 
 """
 Rendre la méthode abstraite force toute nouvelle classe fille à l'implémenter explicitement sous peine de lever 

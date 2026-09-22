@@ -7,35 +7,28 @@ class Habitant:
         self.__age=age
         self.__adresse=adresse
         self.__animaux=animaux
-    @property
+        
     def get_nom(self):
         return self.__nom
     
-    @property
     def set_nom(self,nom):
         self.__nom=nom
     
-    @property
     def get_age(self):
         return self.__age
     
-    @property
     def set_age(self,age):
         self.__age=age
     
-    @property
     def get_adresse(self):
         return self.__adresse
     
-    @property
     def set_adresse(self,adresse):
         self.__adresse=adresse
     
-    @property
     def get_animaux(self):
         return self.__animaux
     
-    @property
     def set_animaux(self,animaux):
         self.__animaux=animaux
 
@@ -88,15 +81,15 @@ class Village :
 
     def afficher_habitants(self):
         print(self.habitants)
-
-pytown = Village("PyTown")
-pytown.ajouter_habitant_composition("Aldric", 25, "Rue A", {"vaches": 3})
-elise = Habitant("Elise", 28, "Rue B", {"poules": 10})
-pytown.ajouter_habitant_agregation(elise)
-autre_village = Village("VillageVoisin")
-autre_village.ajouter_habitant_agregation(elise) # meme habitant dans 2 villages
-assert len(pytown.get_habitants()) == 2
-assert elise in autre_village.get_habitants()
+if __name__ == "__main__":
+    pytown = Village("PyTown")
+    pytown.ajouter_habitant_composition("Aldric", 25, "Rue A", {"vaches": 3})
+    elise = Habitant("Elise", 28, "Rue B", {"poules": 10})
+    pytown.ajouter_habitant_agregation(elise)
+    autre_village = Village("VillageVoisin")
+    autre_village.ajouter_habitant_agregation(elise) # meme habitant dans 2 villages
+    assert len(pytown.get_habitants()) == 2
+    assert elise in autre_village.get_habitants()
 
 
 """
@@ -106,11 +99,11 @@ ajouter_habitant_agregation, lui a une relation plus faible avec le village qui 
 
 @dispatch(object, str)
 def set_info(hab,nom):
-    Habitant.nom=nom
+    hab.set_nom=nom
 @dispatch(object, str, int)
 def set_info(hab,nom,age):
-    Habitant.nom=nom
-    Habitant.age=age
+    hab.set_nom=nom
+    hab.set_age=age
 h2 = Habitant("Bob", 40, "Rue C")
 
 set_info(h2, "Robert") # met a jour le nom seulement
