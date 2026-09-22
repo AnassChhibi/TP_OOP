@@ -68,3 +68,36 @@ try:
 except ValueError:
     pass
 
+
+class Village :
+
+    def __init__(self, nom):
+        self.nom = nom
+        self.habitants=[]
+
+    def get_habitants(self):
+        return self.habitants
+
+    def ajouter_habitant_composition(self, nom, age, adresse, animaux=None):
+        self.habitants.append(Habitant(nom,age,adresse,animaux))
+
+    def ajouter_habitant_agregation(self, habitant):
+        self.habitants.append(habitant)
+
+    def afficher_habitants(self):
+        print(self.habitants)
+
+pytown = Village("PyTown")
+pytown.ajouter_habitant_composition("Aldric", 25, "Rue A", {"vaches": 3})
+elise = Habitant("Elise", 28, "Rue B", {"poules": 10})
+pytown.ajouter_habitant_agregation(elise)
+autre_village = Village("VillageVoisin")
+autre_village.ajouter_habitant_agregation(elise) # meme habitant dans 2 villages
+assert len(pytown.get_habitants()) == 2
+assert elise in autre_village.get_habitants()
+
+
+"""
+ajouter_habitant_composition a une relation forte car il gère la création et ajout de l'habitant tout seul (le village est propriétaire). 
+ajouter_habitant_agregation, lui a une relation plus faible avec le village qui se contente d'utiliser un objet Habitant externe qui existe indépendamment et peut être partagé entre plusieurs villages.
+"""
